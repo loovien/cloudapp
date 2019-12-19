@@ -7,10 +7,10 @@ class AppState {
   bool loading;
 
   AppState({
-    String welcome,
+    String welcomeTxt,
     bool loading,
   }) {
-    this.welcomeTxt = welcome;
+    this.welcomeTxt = welcomeTxt;
     this.loading = loading;
   }
 
@@ -19,9 +19,13 @@ class AppState {
     bool loading,
   }) {
     return AppState(
-      welcome: welcome ?? this.welcomeTxt,
+      welcomeTxt: welcome ?? this.welcomeTxt,
       loading: loading ?? this.loading,
     );
+  }
+
+  factory AppState.loading() {
+    return AppState(loading: true);
   }
 
   @override

@@ -1,5 +1,5 @@
 class WelcomeTxtAction {
-  String txt;
+  String welcomeTxt;
 
-  WelcomeTxtAction(this.txt);
+  WelcomeTxtAction(this.welcomeTxt);
 }
