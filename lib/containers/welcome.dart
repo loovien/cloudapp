@@ -57,9 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                vm.welcomeTxt ?? "xxx",
-                style: Theme.of(context).textTheme.display1,
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  vm.welcomeTxt ?? "...",
+                  style: Theme.of(context).textTheme.display1,
+                ),
               ),
               RaisedButton(
                 onPressed: () {
