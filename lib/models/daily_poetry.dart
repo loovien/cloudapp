@@ -2,7 +2,7 @@ class DailyPoetry {
   String id;
   String content;
   int popularity;
-  List<String> matchTags;
+  List<dynamic> matchTags;
   DailyPoetryOrigin origin;
 
   DailyPoetry(
@@ -10,10 +10,10 @@ class DailyPoetry {
 
   factory DailyPoetry.fromJson(Map<String, dynamic> json) {
     return DailyPoetry(
-      id: json['id'],
-      content: json['content'],
-      popularity: json['popularity'],
-      matchTags: json['matchTags'],
+      id: json['id'] ?? 1,
+      content: json['content'] ?? "",
+      popularity: json['popularity'] ?? 0,
+      matchTags: json['matchTags'] ?? null,
       origin: DailyPoetryOrigin.fromJson(json['origin']),
     );
   }
@@ -23,7 +23,7 @@ class DailyPoetryOrigin {
   String title;
   String dynasty;
   String author;
-  List<String> content;
+  List<dynamic> content;
   String translate;
 
   DailyPoetryOrigin(
@@ -31,10 +31,10 @@ class DailyPoetryOrigin {
 
   factory DailyPoetryOrigin.fromJson(Map<String, dynamic> json) {
     return DailyPoetryOrigin(
-        title: json["title"],
-        dynasty: json['dynasty'],
-        author: json['author'],
-        content: json['content'],
-        translate: json['translatre']);
+        title: json["title"] ?? '',
+        dynasty: json['dynasty'] ?? '',
+        author: json['author'] ?? '',
+        content: json['content'] ?? null,
+        translate: json['translatre'] ?? '');
   }
 }

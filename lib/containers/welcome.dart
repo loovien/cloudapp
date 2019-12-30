@@ -47,30 +47,31 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text(widget.title),
-      ),
+      ),*/
       body: Center(
           child: StoreConnector(
         converter: _ViewModel.fromStore,
         builder: (BuildContext context, _ViewModel vm) {
+          String slogan = vm.welcomeTxt ?? "...";
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                  vm.welcomeTxt ?? "...",
-                  style: Theme.of(context).textTheme.display1,
+                  slogan.split('').join("\n"),
+                  style: Theme.of(context).textTheme.title,
                 ),
               ),
-              RaisedButton(
+              /*RaisedButton(
                 onPressed: () {
                   print("click");
                   vm.getPoetry();
                 },
-                child: Text("reflresh"),
-              ),
+                child: Text("refresh"),
+              ),*/
             ],
           );
         },

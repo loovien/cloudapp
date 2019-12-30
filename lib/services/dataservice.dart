@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cloudapp/models/daily_poetry.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 class DataService {
   static DataService dataService;
@@ -10,8 +11,10 @@ class DataService {
     if (dataService != null) {
       return dataService;
     }
-    return dataService = DataService();
+    return dataService = DataService._inner();
   }
+
+  DataService._inner();
 
   Future<DailyPoetry> getDailyPoetry() async {
     const token = "G8DhdV8U8vGFVcJwwTbShyMkL182wLaI";
@@ -20,7 +23,7 @@ class DataService {
     var response = await http.get(apiUrl,
         options: Options(headers: {"X-User-Token": token}));
     DailyPoetry dailyPoetry =
-        DailyPoetry.fromJson(jsonDecode(response.data.toString()));
+        DailyPoetry.fromJson(jsonDecode(response.toString())["data"]);
     return dailyPoetry;
   }
 }
